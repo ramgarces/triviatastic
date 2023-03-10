@@ -41,11 +41,11 @@ onMounted(async() => {
 
   & .category {
     @apply flex h-32 items-center justify-center rounded-lg 
-    border-green-500 py-4 border-4 font-bold uppercase text-slate-600
+    border-purple-700 py-4 border-4 font-bold uppercase text-slate-600
     transition-colors duration-300 text-center;
     
     &:hover {
-      @apply cursor-pointer border-red-500 bg-red-500 text-white;
+      @apply cursor-pointer border-yellow-500 bg-yellow-500 text-slate-700;
     }
   }
 }
