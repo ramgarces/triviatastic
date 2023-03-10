@@ -21,7 +21,6 @@ onMounted(async() => {
     v-for="category in categories" :key="category.id" 
     class="category">{{ category.name }}</RouterLink>
   </div>
-
 </template>
 
 <style lang="postcss" scoped>
@@ -51,8 +50,4 @@ onMounted(async() => {
   }
 }
 
-.score {
-  @apply absolute bottom-6 right-8 m-8 text-2xl font-bold uppercase
-  text-slate-700;
-}
 </style>
