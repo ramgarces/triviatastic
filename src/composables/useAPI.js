@@ -1,15 +1,19 @@
+import { ref } from 'vue'
 import axios from 'axios'
 
 const instance = axios.create({
     baseURL: 'https://opentdb.com/',
 })
 
+const categories = ref([])
+
 export default function useAPI() {
     const getCategories = async () => {
-        const response = await instance.get('api_category.php')
-        return response.data.trivia_categories
-    }
-
+        if (categories.value.length === 0) {
+            const response = await instance.get('api_category.php')
+            categories.value = response.data.trivia_categories
+        }
+    } 
     const getQuestion = async (categoryId) => {
         const response = await instance.get('api.php', {
             params: {
@@ -19,6 +23,6 @@ export default function useAPI() {
         })
         return response.data.results[0]
     }
-    return { instance, getCategories, getQuestion }
+    return { instance, categories, getCategories, getQuestion }
 }
 
